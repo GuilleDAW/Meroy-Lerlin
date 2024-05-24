@@ -1,0 +1,154 @@
+Ideas para el proyecto:
+
+- Posibilidad de hacer un desplegable que dé a elegir entre las opciones de
+gestión de empleado/oficina (crear, borrar, modificar, buscar, cambiarle el jefe, cambiarle de oficina)
+- Otra opción es hacer pestañas y en una de ellas, agrupar las opciones de
+gestión de empleado/oficina y en otra, las opciones relacionadas con la información (solo en el caso del 
+empleado. En oficina no se pide eso), que son listado de empleado en ventana emergente e informe 
+de cantidad de empleados.
+16/05/2024
+- Al crear un empleado y asignarle una oficina, debe avisar si la oficina asignada
+no existe. O bien hacer un desplegable que muestre las oficinas creadas y darle a 
+elegir (hay que averiguar cómo volcar las oficinas existentes en el objeto del 
+desplegable). Respuesta:Creo que sera más fácil decir que no existe y cree una, la solución que propongo es hacer un bucle y buscar si existe (si quieres cuando vengas a clase te comentó).
+
+- A la hora de modificar datos, que salga un jpane que pida el id y si no existe, que avise. 
+Si existe, que se carguen los datos en los textfield. Respuesta: Me parece perfecto (habría que bloquear los campos de codigo de oficina y jefe ya que ya existen los botones para cambiar estos).
+
+- Cuando se quiera cambiar al jefe de un empleado, lo mismo que lo anterior, pero que todos los
+- A la hora de buscar un empleado, qué hacemos: que lo muestre en los mismos
+campos que se usan para crear uno nuevo, o que lo muestre en una ventana
+emergente?
+
+17/05/2024
+- A la hora de borrar una oficina no se debería poder si tiene empleados asociados(HECHO)
+
+
+
+Notas para el compañero:
+
+- Cambia el nombre y/o nombres de varibles de botón que veas conveniente.
+- Lo mismo con los atributos de clases y el diseño de la interfaz.
+- No me acaba de convencer el diseño. Creo que hay demasiados botones juntos.
+  16/05/2024
+- Si ves alguna falta de ortografía corrígela.
+- Mira el script de la base de datos ya hay empleados y oficinas creados (puede que aclare algunas ideas). 
+
+Observaciones:
+16/05/2024
+- He hecho una prueba de la ventana Empleados, con dos TabbedPane.
+He creado los botones y campos y la inserción en la BBDD en el código del boton
+Falta adaptar la conexión al Singleton
+- He cambiado unos JtextField para que sean los FormatTextField para que solo puedan introducir ciertas cosas
+- En vez de hacer el empleado por cada parte decidi hacerlo atraves del objeto empleado
+
+17/05/2024
+- He hecho la ventana de oficinas con jFormattedPane en el código de oficina
+y en el código postal. Sale un error en el código por alguno de los dos.
+- He implementado el código de crear y borrar oficina de la misma manera
+que has hecho tú en empleado
+
+18/05/2024
+-He hecho el botón de eliminar oficina. No deja borrar si tiene empleados asociados.
+Lo que no deja es borrar las que no tienen empleados. He creado una y hago la 
+prueba y nada, pone error de conexión. 
+Otra cosa relacionada con este botón es que hay que poner que salga un aviso
+en el caso de que no exista la oficina. De momento no he sabido como plantear
+esa solución. Hoy es de esos días que no me sale nada...
+
+20/05/2024
+- En el panel de oficinas, en la opción de borrar oficina, hay que modificar el
+jOptionPane para que si le das a la X, no salga igualmente el mensaje de
+oficina eliminada con éxito.
+
+21/05/2024
+- He estado una hora intentando arreglar lo de modificar oficina y empleado pero 
+no hay manera. Es increible.(SOLUCIONADO)
+- En modificar empleado creo que el error está en cuando asigna el valor del código del empleado
+en el select. De momento no he sabido solucionarlo.
+- He cambiado lo de introducir id de oficina para que coja los datos aunque se escriban
+en minuscula.
+- He empezado a hacer el botón de buscarOficina. He hecho que al darle aparezca una ventana.
+La idea es que primero salga un jFrame para que el usuario introduzca la oficina que quiere
+y luego se cargen los datos en la ventana esta nueva que te digo.
+
+21/05/2024
+-He optado que en los botones de buscar en vez de llevar hasta un jPanel lo cual seria más 
+laborioso que te muestre un JOptionPane donde te muestre toda la información mira a ver si te gusta como queda y ya me 
+comentas. 
+
+22/05/2024
+- No consigo hacer que el codigo de la oficina y del jefe se cambien con sus respectivos botones 
+
+23/05/2023
+- He hecho que se comprueben algunos datos en el botón de cambiar la ofi del emp pero
+tampoco he conseguido que se guarden los cambios en la BBDD.
+- No se me guardan los cambios en modificar emp. 
+
+24/05/2024
+- He hecho que los campos de datos de crear usuarios que sean not null en la BBDD se
+marquen en rojo si se quedan vacíos. Pero solo los jTextField. A los formated no se le aplica
+el efecto, no sé por qué.
+
+- He hecho un comboBox en la pantalla de gestionEmpleados para probar si iba y lo he conseguido 
+a medias. La idea es que salgan en las opciones del desplegable todas las oficinas, pero
+de primeras sale otra cosa. Los nombres solo salen si le das a una de las opciones. Es una
+idea que si da tiempo esta tarde podríamos intentar terminar.
+
+- En la pantalla de oficina, en el botón de Generar informe de empleados, he hecho que 
+primero salga un jPane con la información de todos los empleados que hay por oficina y 
+luego que salga la opcion de si quiere que se genere el txt.
+
+- En la pantalla de empleado, en la opción Cambiar oficina, si pones la ID mal o no pones
+ninguna, el jToggleButton ya no se queda marcado. Lo mismo con el de Cambiar jefe del empleado.
+
+- He intentado que en la pantalla de cambiar jefe y oficina del emp, los campos queden deshabilitados
+hasta que se introduzca un id de emp válido, pero de momento no funciona.
+
+- En Modificar empleado, si no pones ninguna id se queja y se desmarca el botón, pero si 
+pones una id que no existe, sale un error de sql.
+
+- En buscar usuario, tanto si dejas el campo vacío como si pones una id que no exista, se queja.
+
+FALTA POR HACER:
+
+Pantalla de gestión de empleado:
+
+- botón crear empleado:
+    * corregir si se pulsa con todos los campos vacíos. (A MEDIAS. Menos los formatedField)
+
+- botón de cambio de oficina: 
+    * que se guarden los cambios (FUNCIONA)
+    * si pones un número de empleado erróneo, se desmarque el botón de guardar cambios (FUNCIONA)
+    * no se pueda escribir en el textField hasta que no se ponga una id de emp correcta (EN PROCESO)
+
+- botón de cambio de jefe: 
+    * que se guarden los cambios (FUNCIONA)
+    * si pones un número de empleado erróneo, se desmarque el botón de guardar cambios (FUNCIONA)
+    * no se pueda escribir en el textField hasta que no se ponga una id de emp correcta (EN PROCESO)
+    * si no existe el jefe indicado, que se queje.
+
+- botón borrar emp:
+    * no se borra el empleado. ALGUNOS NO LOS ELIMINA
+    * que salga un cartel de confirmación cuando lo borra. (HECHO)
+    * que compruebe si el empleado existe y si no existe se queje. (HECHO) 
+
+- Botón buscar emp:
+    * que compruebe si el empleado existe y si no existe se queje. (HECHO)
+
+- Botón buscar empleados por oficina:
+    * que compruebe si el empleado existe y si no existe se queje.
+
+Pantalla de gestión de oficina
+
+- Botón buscar oficina:
+    * que compruebe si la oficina existe y si no existe se queje.
+
+- Botón modificar oficina:
+    * que compruebe si la oficina existe y si no existe se queje.
+    * que se quede desmarcado el botón de guardar cambios si la ofi no existe
+
+- Hacer la funcionalidad del botón de informe de empleados. (HECHO)
+
+Detalles que añadir al final si nos da tiempo:
+17/05/2024
